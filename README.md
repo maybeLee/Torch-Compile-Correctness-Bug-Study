@@ -56,7 +56,7 @@ DL-compiler testing techniques (RQ3), the results of our guideline-driven agent
   and reported to PyTorch. Columns: `name`, `status`, `link`, `high priority`,
   `bug-triggering pattern`.
 - `rq4/bug_reports/` — the reproducible code for each bug identifier found across
-  the three rounds.
+  the three rounds. We only give the reproducible code here because some bugs have already been fixed in the latest version of PyTorch.
 
 ## Discussion — Extended study window
 
