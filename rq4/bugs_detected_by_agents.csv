@@ -1,0 +1,16 @@
+bug_identifier,tool_name,bug-triggering pattern
+repeat -> as_strided,baseagent,Optimization-Triggering Sequence
+transpose + max_pool,baseagent;cgagent,Layout-Constraint Chain
+-0.0 -> reciprocal/div,baseagent,Boundary-Value Input
+nan/inf * 0,baseagent;cgagent,Boundary-Value Input
+angle complex -0.0,baseagent;cgagent,Boundary-Value Input
+expand + fill_,cgagent,Aliased Mutation
+"expand - index_put ([0,0]) - index_get ([0])",cgagent,Aliased Mutation
+expand -> index_put_,cgagent,Aliased Mutation
+inf div,cgagent,Boundary-Value Input
+interpolate - align_corners=False,cgagent,Parameterized Operator
+logaddexp complex inf,cgagent,Boundary-Value Input
+arange %2 -> duplicate indices,cgagent,Aliased Mutation
+negative * 0.0 + 0.0,cgagent,Boundary-Value Input
+unsqueeze - permute - vector_norm,cgagent,Layout-Constraint Chain
+w.data.fill_ + register_buffer+=1 + pow,cgagent,Non-Tensor Construct

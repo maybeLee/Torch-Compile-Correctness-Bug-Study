@@ -1,0 +1,29 @@
+name,status,link,high priority,bug-triggering pattern
+index_put_ with duplicated indices,Fixed,https://github.com/pytorch/pytorch/issues/174074,Yes,Aliased Mutation
+dropout on transpose + contiguous,Fixed,https://github.com/pytorch/pytorch/issues/174078,Yes,Layout-Constraint Chain
+IPO on .data,Fixed,https://github.com/pytorch/pytorch/issues/174187,No,Aliased Mutation
+empty_like with use_deterministic_algorithms(True),Fixed,https://github.com/pytorch/pytorch/issues/174386,Yes,Non-Tensor Construct
+clone + as_strided + add_,PR Created,https://github.com/pytorch/pytorch/issues/174371,No,Aliased Mutation
+complex-broadcast-add (attention score),Fixed,https://github.com/pytorch/pytorch/issues/174891,No,Optimization-Triggering Sequence
+matmul-transpose-div-add-softmax-matmul?,Fixed,https://github.com/pytorch/pytorch/issues/175632,Yes,Optimization-Triggering Sequence
+fill-roll-as_strided+memory format,Fixed,https://github.com/pytorch/pytorch/issues/174963,No,Layout-Constraint Chain
+add_.reshape on transposed tensor / pad-index_put-sort / div_-softmax-detech,Fixed,"https://github.com/pytorch/pytorch/issues/174969
+https://github.com/pytorch/pytorch/issues/177631
+https://github.com/pytorch/pytorch/issues/175496",Yes,Aliased Mutation
+interpolate in nearest mode + non-integer scale_factor,PR Created,https://github.com/pytorch/pytorch/issues/175154,Yes,Parameterized Operator
+Consecutive randint calls,Fixed,https://github.com/pytorch/pytorch/issues/175156,Yes,Optimization-Triggering Sequence
+matmul-expand-index_put,Fixed,https://github.com/pytorch/pytorch/issues/175791,Yes,Aliased Mutation
+torch.compile's RNG state is inconsistent with eager on non-contiguous tensor when size >= 16,Fixed,https://github.com/pytorch/pytorch/issues/177652,No,Layout-Constraint Chain
+mul-cat-complicated indexing (include aliasing),Fixed,https://github.com/pytorch/pytorch/issues/177821,Yes,Aliased Mutation
+logit-exps>0.5,Fixed,https://github.com/pytorch/pytorch/issues/177839,Yes,Parameterized Operator
+add_ + clamp_ + squeeze + clone,PR Created,https://github.com/pytorch/pytorch/issues/178680,Yes,Aliased Mutation
+max returns incorrect indices on transposed tensor,Fixed,https://github.com/pytorch/pytorch/issues/178964,No,Layout-Constraint Chain
+transposed tensor on adaptive_max_pool2d + return_indices=True,PR Created,https://github.com/pytorch/pytorch/issues/197434,No,Layout-Constraint Chain
+expand - fill_,Confirmed,https://github.com/pytorch/pytorch/issues/197448,No,Aliased Mutation
+repeat-as_strided,Confirmed,https://github.com/pytorch/pytorch/issues/197431,No,Boundary-Value Input
+arange % 2 → duplicate indices,Confirmed,https://github.com/pytorch/pytorch/issues/197582,No,Aliased Mutation
+angle - complex -0.0,Confirmed,https://github.com/pytorch/pytorch/issues/197586,No,Boundary-Value Input
+t → add/contiguous/lerp → argmin,Confirmed,https://github.com/pytorch/pytorch/issues/197739,No,Layout-Constraint Chain
+self.w.data.fill_ + self.register_buffer += 1,Confirmed,https://github.com/pytorch/pytorch/issues/197738,Yes,Non-Tensor Construct
+interpolate (align_corners=False) - pad - gt,Reported,https://github.com/pytorch/pytorch/issues/198379,No,Parameterized Operator
+"expand - index_put ([0,0]) - index_get ([0])",Reported,https://github.com/pytorch/pytorch/issues/198382,No,Aliased Mutation

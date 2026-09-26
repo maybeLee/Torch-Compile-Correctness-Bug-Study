@@ -1,0 +1,32 @@
+title,issue link,root cause,bug-triggering pattern,Detected by Techniques
+[torch.compile] WRONG VALUE for `split+cat`,https://github.com/pytorch/pytorch/issues/99686,Unsound Graph Optimization,Optimization-Triggering Sequence,whitefox
+[torch.compile] returns different value/type tensor with naive execution,https://github.com/pytorch/pytorch/issues/109925,Incorrect Operand Type-Promotion,Optimization-Triggering Sequence,whitefox
+[Inductor][cpu][miscompile] Outputs of torch.tan abnormally change when adding an intermediate result as output,https://github.com/pytorch/pytorch/issues/115260,Incorrect Operand Type-Promotion,Optimization-Triggering Sequence,neuri
+[torch.addmm] [torch.cat] Abnormal random output when using torch.compile(),https://github.com/pytorch/pytorch/issues/137254,Unsound Graph Optimization,Optimization-Triggering Sequence,whitefox
+precision error for attention like-operation,https://github.com/pytorch/pytorch/issues/151098,Unsound Graph Optimization,Optimization-Triggering Sequence,whitefox
+[cpu inductor] where is silently incorrect when SIMD code is generated.,https://github.com/pytorch/pytorch/issues/100800,Incorrect Kernel Code Generation,Boundary-Value Input,deepconstr;neuri
+Output mismatch of torch.sum with torch.compile when swapping the input parameters of torch.mul on CPU,https://github.com/pytorch/pytorch/issues/113141,Incorrect Kernel Code Generation,Boundary-Value Input,neuri
+Inconsistency error with `torch.sinh` and `torch.relu` in PyTorch Model,https://github.com/pytorch/pytorch/issues/117544,Incorrect Kernel Code Generation,Boundary-Value Input,whitefox
+[Inductor] [CPU] [silent] `bitwise_right_shift` outputs wrong results when `other==64`,https://github.com/pytorch/pytorch/issues/143555,Incorrect Kernel Code Generation,Boundary-Value Input,neuri
+torch.special.polygamma outputs incorrect when using torch.compile,https://github.com/pytorch/pytorch/issues/143648,Incorrect Kernel Code Generation,Boundary-Value Input,neuri;titanfuzz
+[inductor] [cpu] `nn.Tanhshrink-atan2` output inconsistent results with eager,https://github.com/pytorch/pytorch/issues/148241,Incorrect Kernel Code Generation,Boundary-Value Input,deepconstr;neuri;whitefox
+"[inductor] [cpu] cpu inductor incorrectly processes `.to(torch.uint8)`, resulting in numerical inconsistency",https://github.com/pytorch/pytorch/issues/156788,Incorrect Operand Type-Promotion,Boundary-Value Input,titanfuzz
+Inconsistent behaviours when padding size is zero,https://github.com/pytorch/pytorch/issues/97117,Incorrect Operator Decomposition,Parameterized Operator,neuri
+[torch.compile] returns inconsistent value `AvgPool` when `ceil_mode = True`,https://github.com/pytorch/pytorch/issues/100987,Incorrect Operator Decomposition,Parameterized Operator,whitefox
+[torch.compile] the sum of `softmax` isn't `1` on cuda,https://github.com/pytorch/pytorch/issues/101039,Incorrect Operator Decomposition,Parameterized Operator,opera
+Inconsistent output of torch.nn.Conv2d with torch.compile over multiple runs,https://github.com/pytorch/pytorch/issues/113018,Incorrect Layout Propagation,Parameterized Operator,whitefox
+Different behaviors on`torch.var_mean` with torch.compile(default mode),https://github.com/pytorch/pytorch/issues/113167,Incorrect Operator Decomposition,Parameterized Operator,deepconstr
+different outputs of torch.diag_embed between torch.compile mode and eagermode,https://github.com/pytorch/pytorch/issues/117019,Incorrect Operator Decomposition,Parameterized Operator,deepconstr
+"[Inductor] [CPU] `config.fallback_random = True` has a negative effect for `nn.Dropout1d`, `nn.Dropout2d`, and `nn.Dropout3d` on CPU",https://github.com/pytorch/pytorch/issues/142853,Incorrect Operator Decomposition,Parameterized Operator,opera;titanfuzz;whitefox
+[inductor] [cpu] [silent] `avg_pool2d` incorrectly process int64,https://github.com/pytorch/pytorch/issues/143738,Incorrect Operator Decomposition,Parameterized Operator,opera;titanfuzz
+torch.dist is more numerical unstable on scalar input after torch.compile,https://github.com/pytorch/pytorch/issues/143960,Incorrect Operator Decomposition,Parameterized Operator,opera
+torch.linalg.vector_norm regression in torch.compile in PT2.8,https://github.com/pytorch/pytorch/issues/153568,Incorrect Operator Decomposition,Parameterized Operator,deepconstr
+TorchInductor returns wrong output shape for aten.isin with scalar input,https://github.com/pytorch/pytorch/issues/171262,Incorrect Operator Decomposition,Parameterized Operator,deepconstr
+[compile] Correctness and reproducibility issue,https://github.com/pytorch/pytorch/issues/159855,Unsound Graph Optimization,No minimal reproducer,neuri
+AOTautograd returns wrong result for in_place update on input which is view tensor,https://github.com/pytorch/pytorch/issues/93363,Broken Aliasing and Mutation Semantics,Aliased Mutation,neuri
+Inconsitent results before/after compilation for squeeze + tensor mutation + if statement,https://github.com/pytorch/pytorch/issues/97083,Broken Aliasing and Mutation Semantics,Aliased Mutation,nnsmith_inference
+Incorrect output from inductor: tile -> as_strided -> add,https://github.com/pytorch/pytorch/issues/127474,Broken Aliasing and Mutation Semantics,Aliased Mutation,neuri
+[pt2] `pow` + `cos` produces wrong result,https://github.com/pytorch/pytorch/issues/98149,Incorrect Kernel Code Generation,Mixed-dtype Operands,neuri;nnsmith_inference
+[torch.compile] returns NaN for `tensor.mul(big_number).softmax()`,https://github.com/pytorch/pytorch/issues/100775,External Dependency and Toolchain Misuse,Environment-Dependent,deepconstr;neuri;nnsmith_inference;whitefox
+Discrepancy Between Eager Mode and Optimized Mode Results for hinge_embedding_loss,https://github.com/pytorch/pytorch/issues/113012,External Dependency and Toolchain Misuse,Environment-Dependent,deepconstr;neuri;nnsmith_inference;whitefox
+[torch.compile] `fuse_attention` returns inconsistent value for the model,https://github.com/pytorch/pytorch/issues/121174,Incorrect Layout Propagation,Layout-Constraint Chain,whitefox

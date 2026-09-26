@@ -1,0 +1,52 @@
+title,link,root cause,bug-triggering pattern
+[dynamo][inline inbuilt nn modules]`torch.func.functional_call` doesn't work with compiled models,https://github.com/pytorch/pytorch/issues/97909,Unfaithful Program Tracing,Non-Tensor Construct
+different behaviors in cumsum between torch.compile mode and eager mode,https://github.com/pytorch/pytorch/issues/117623,Incorrect Operand Type-Promotion,Parameterized Operator
+Inductor: Codegen for sympy Trunc is incorrect,https://github.com/pytorch/pytorch/issues/126537,Faulty Symbolic-Variable Resolving,Non-Tensor Construct
+`torch.nn.functional.one_hot` has inconsistent execution behavior under torch.compile,https://github.com/pytorch/pytorch/issues/144211,Incorrect Operator Decomposition,Parameterized Operator
+[dynamo] Save/restore system random state more carefully,https://github.com/pytorch/pytorch/issues/145329,Unfaithful Program Tracing,Non-Tensor Construct
+aot_eager produces wrong output with all_gather_tensor_autograd,https://github.com/pytorch/pytorch/issues/148701,Unfaithful Program Tracing,Non-Tensor Construct
+RMS norm causes NaNs when used with torch.compile + float8 with rowwise scales,https://github.com/pytorch/pytorch/issues/150859,Incorrect Operator Decomposition,No minimal reproducer
+[dynamo] patching nn.Module forward is silently incorrect,https://github.com/pytorch/pytorch/issues/167400,Broken Aliasing and Mutation Semantics,Aliased Mutation
+stride mismatch between eager and compile for _c10d_functional.all_reduce,https://github.com/pytorch/pytorch/issues/167430,Incorrect Layout Propagation,Layout-Constraint Chain
+index_reduce returns NaN during backward when compiled and using 'amax'/'amin',https://github.com/pytorch/pytorch/issues/168358,Incorrect Operator Decomposition,Parameterized Operator
+AArch64 unit test failure test_transpose_copy on Neoverse-V1,https://github.com/pytorch/pytorch/issues/169958,External Dependency and Toolchain Misuse,Environment-Dependent
+[Inconsistency][Inductor] binary_cross_entropy_with_logits returns different dtypes between Eager and Inductor,https://github.com/pytorch/pytorch/issues/171282,Incorrect Operand Type-Promotion,Mixed-dtype Operands
+SDPA produces NaN with torch.compile mode=“max-autotune-no-cudagraphs” when batch_size × seq_len == 65536 (64k),https://github.com/pytorch/pytorch/issues/171389,Incorrect Kernel Code Generation,Optimization-Triggering Sequence
+incorrect fusion and re-ordering of an index_add,https://github.com/pytorch/pytorch/issues/171493,Unsound Graph Optimization,Optimization-Triggering Sequence
+torch.compile results in loss nan while it converges without torch.compile on mac cpu and mps,https://github.com/pytorch/pytorch/issues/171764,Incorrect Kernel Code Generation,Environment-Dependent
+torch.func.vjp: compiled vjp_fn returns incorrect zero gradients,https://github.com/pytorch/pytorch/issues/172386,Unfaithful Program Tracing,Non-Tensor Construct
+Miscompile: torch.compile inductor dynamic compilation assumes strided tensor is contiguous when reshaping,https://github.com/pytorch/pytorch/issues/172693,Incorrect Layout Propagation,Boundary-Value Input
+_torchdynamo_orig_callable must not be inherited by functools.wraps,https://github.com/pytorch/pytorch/issues/172732,Unfaithful Program Tracing,Non-Tensor Construct
+"`torch.compile` silent bug in GGUF dequant, possibly because of `view(dtype)`",https://github.com/pytorch/pytorch/issues/172747,Unsound Compilation-Reuse Identity,Stateful Re-execution
+[Inductor] [CUDA] torch.bucketize produces inconsistent results for nan values between Eager and Inductor modes on CUDA,https://github.com/pytorch/pytorch/issues/173133,Incorrect Kernel Code Generation,Boundary-Value Input
+Inductor produces different results from eager for aten.eq with BF16 tensor and FP32 scalar,https://github.com/pytorch/pytorch/issues/173987,Incorrect Operand Type-Promotion,Mixed-dtype Operands
+[Inductor] cumprod backward produces incorrect gradients when input contains zeros,https://github.com/pytorch/pytorch/issues/174016,Incorrect Operator Decomposition,Parameterized Operator
+torch.compile produce inconsistent results when user overrides Python magic methods __class__,https://github.com/pytorch/pytorch/issues/174050,Unfaithful Program Tracing,Non-Tensor Construct
+[Inductor] argmax/max returns incorrect indices for boolean tensors on CUDA,https://github.com/pytorch/pytorch/issues/174069,Incorrect Kernel Code Generation,Boundary-Value Input
+[Inconsistency] TorchInductor produce differnt results with eager about the copysign operator,https://github.com/pytorch/pytorch/issues/174172,Incorrect Kernel Code Generation,Boundary-Value Input
+[Inductor] Missing host-side synchronization after non-blocking D2H copies,https://github.com/pytorch/pytorch/issues/174695,Unfaithful Program Tracing,Non-Tensor Construct
+[Inductor] Incorrect results in `index_put_` when `randperm` views are not injective,https://github.com/pytorch/pytorch/issues/175903,Broken Aliasing and Mutation Semantics,Aliased Mutation
+[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views,https://github.com/pytorch/pytorch/issues/175919,Incorrect Layout Propagation,Layout-Constraint Chain
+Fix AOTI incorrect loads from bool tensor pointers in user-defined Triton kernels,https://github.com/pytorch/pytorch/pull/176353,External Dependency and Toolchain Misuse,Environment-Dependent
+[Inductor] Mismatch between eager and compiled outputs when converting fp32 → bf16 → fp32,https://github.com/pytorch/pytorch/issues/176565,Incorrect Operand Type-Promotion,Mixed-dtype Operands
+[dynamo] Property getter using `__dict__.get()` returns stale value inside `@torch.compiler.disable` in nightlies,https://github.com/pytorch/pytorch/issues/176608,Broken Aliasing and Mutation Semantics,Aliased Mutation
+torch.compile produces incorrect results with Tensor subclass using __torch_function__,https://github.com/pytorch/pytorch/issues/176679,Unfaithful Program Tracing,Non-Tensor Construct
+[regression] torch.compile does not recompile when class attribute is mutated between calls,https://github.com/pytorch/pytorch/issues/176851,Unsound Compilation-Reuse Identity,Stateful Re-execution
+torch.compile does not correctly propagate detach_() in-place autograd semantics,https://github.com/pytorch/pytorch/issues/176854,Broken Aliasing and Mutation Semantics,Aliased Mutation
+TorchDynamo Produces Incorrect Output Shape When Model Uses Runtime Shape-Based Dictionary Lookups,https://github.com/pytorch/pytorch/issues/176862,Unfaithful Program Tracing,Non-Tensor Construct
+[Bugfix] Fix onehot runtime error,https://github.com/pytorch/pytorch/pull/177160,Incorrect Operator Decomposition,Parameterized Operator
+[Inductor] Eager and inductor produce different results for floor_divide,https://github.com/pytorch/pytorch/issues/177740,Incorrect Kernel Code Generation,Boundary-Value Input
+Eager and compile disagree for integer floor_divide with zero divisor,https://github.com/pytorch/pytorch/issues/178013,Incorrect Kernel Code Generation,Boundary-Value Input
+`torch.compile` silently accepts `nn.Embedding` with float tensor indices where eager raises TypeError,https://github.com/pytorch/pytorch/issues/178042,External Dependency and Toolchain Misuse,Parameterized Operator
+"Dynamo does not guard on function.__defaults__, causing silent correctness bugs with flex_attention",https://github.com/pytorch/pytorch/issues/178365,Unsound Compilation-Reuse Identity,Stateful Re-execution
+Fix nn.Dropout accuracy discrepancies between triton and torch implementations [new],https://github.com/pytorch/pytorch/pull/178843,Incorrect Kernel Code Generation,Boundary-Value Input
+Incorrect output for non-power-of-2-sized fusion of scalar broadcast and scatter-add,https://github.com/pytorch/pytorch/issues/178871,Unsound Graph Optimization,Optimization-Triggering Sequence
+[inductor] `x.to(torch.bfloat16).float()` precision cast silently elided during fusion,https://github.com/pytorch/pytorch/issues/179561,Unsound Graph Optimization,Optimization-Triggering Sequence
+"torch.compile` silently zeroes `x.grad` for the pattern `slice_scatter(x, y, dim=K).sum(dim=K)` — backward is wrong, forward is correct",https://github.com/pytorch/pytorch/issues/180164,Incorrect Layout Propagation,Layout-Constraint Chain
+[inductor] `torch.compile` produces wrong gradients for `torch.slice_scatter` backward,https://github.com/pytorch/pytorch/issues/180771,Incorrect Operator Decomposition,Parameterized Operator
+[inductor] Incorrect output when compiling model with expand+broadcasted index put,https://github.com/pytorch/pytorch/issues/175791,Broken Aliasing and Mutation Semantics,Aliased Mutation
+[COMPILE] torch compile is broken with autograd.Function with completely incorrect outputs most of the times in PyTorch 2.11,https://github.com/pytorch/pytorch/issues/180642,Broken Aliasing and Mutation Semantics,Non-Tensor Construct
+# `torch.compile` silently produces wrong output for `adaptive_avg_pool2d + flatten + sum` — all batches except batch 0 are wrong,https://github.com/pytorch/pytorch/issues/179931,Incorrect Layout Propagation,Optimization-Triggering Sequence
+[cpu inductor] [silent incorrectness] `permute-randn_like` outputs incorrect results with `backend='aot_eager_decomp_partition'`,https://github.com/pytorch/pytorch/issues/164546,Incorrect Layout Propagation,Layout-Constraint Chain
+flex_attention(BACKEND='FLASH') return_lse=True returns lse off by factor ln(2),https://github.com/pytorch/pytorch/issues/181645,External Dependency and Toolchain Misuse,Environment-Dependent
+`torch.where` with broadcast shapes produces wrong output under `torch.compile(backend='inductor')`,https://github.com/pytorch/pytorch/issues/181695,Incorrect Layout Propagation,Parameterized Operator
